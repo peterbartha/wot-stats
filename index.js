@@ -15,6 +15,11 @@ app.use(function(req, res, next) {
   } else next();
 });
 
+require('./routes/player')(app);
+require('./routes/statistics')(app);
+require('./routes/reference')(app);
+require('./routes/outside')(app);
+
 // Server configuration
 app.use(express.static('static'));
 var server = app.listen(3000, function() {
