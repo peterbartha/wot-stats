@@ -38,5 +38,12 @@ module.exports = function (app) {
       res.redirect('/');
     }
   );
-
+  
+  /**
+   * Sign up page
+   */
+  app.get('/signup',
+    renderMW(objectRepository, 'signup')
+  );
+  
 };

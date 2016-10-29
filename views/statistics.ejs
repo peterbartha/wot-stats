@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>World of Tanks Statistics Tracker</title>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-<nav class="teal darken-1" role="navigation">
-  <div class="nav-wrapper container">
-    <a id="logo-container" href="/" class="brand-logo">WoTStats</a>
-    <ul class="right hide-on-med-and-down">
-      <li><input type="text" name="search-field" id="search-field" placeholder="Search for player" /></li>
-      <li><a href="/reference">Reference</a></li>
-      <li><a href="/signup">Sign up</a></li>
-      <li><a href="/signin" class="waves-effect waves-light btn">Sign in</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="side-nav">
-      <li><a href="/reference">Reference</a></li>
-      <li><a href="/signup">Sign up</a></li>
-      <li><a href="/signin">Sign in</a></li>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-  </div>
-</nav>
-
-<main id="content-wrapper">
+<% include header %>
   <div class="container">
     <div id="statistics-section" class="section with-margin">
       <div class="row">
@@ -222,27 +191,27 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td><img class="mastery-badge" src="img/mastery/mastery4.png" class="mastery-badge"></td>
+                  <td><img class="mastery-badge" src="/img/mastery/mastery4.png" class="mastery-badge"></td>
                   <td>Mastery</td>
                   <td>13&nbsp;&nbsp;<small>(18,06%)</small></td>
                 </tr>
                 <tr>
-                  <td><img class="mastery-badge" src="img/mastery/mastery3.png" class="mastery-badge"></td>
+                  <td><img class="mastery-badge" src="/img/mastery/mastery3.png" class="mastery-badge"></td>
                   <td>1st Class</td>
                   <td>18&nbsp;&nbsp;<small>(25,00%)</small></td>
                 </tr>
                 <tr>
-                  <td><img class="mastery-badge" src="img/mastery/mastery2.png" class="mastery-badge"></td>
+                  <td><img class="mastery-badge" src="/img/mastery/mastery2.png" class="mastery-badge"></td>
                   <td>2nd Class</td>
                   <td>20&nbsp;&nbsp;<small>(27,78%)</small></td>
                 </tr>
                 <tr>
-                  <td><img class="mastery-badge" src="img/mastery/mastery1.png" class="mastery-badge"></td>
+                  <td><img class="mastery-badge" src="/img/mastery/mastery1.png" class="mastery-badge"></td>
                   <td>3rd Class</td>
                   <td>15&nbsp;&nbsp;<small>(20,83%)</small></td>
                 </tr>
                 <tr>
-                  <td><img class="mastery-badge" src="img/mastery/mastery0.png" class="mastery-badge"></td>
+                  <td><img class="mastery-badge" src="/img/mastery/mastery0.png" class="mastery-badge"></td>
                   <td>No Mastery</td>
                   <td>6&nbsp;&nbsp;<small>(8,33%)</small></td>
                 </tr>
@@ -275,7 +244,7 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td><img src="img/classes/heavyTank.png" class="class-badge"><b>HT</b></td>
+                  <td><img src="/img/classes/heavyTank.png" class="class-badge"><b>HT</b></td>
                   <td>2101</td>
                   <td>-</td>
                   <td>1105</td>
@@ -286,7 +255,7 @@
                   <td>52,59%</td>
                 </tr>
                 <tr>
-                  <td><img src="img/classes/mediumTank.png" class="class-badge"><b>MT</b></td>
+                  <td><img src="/img/classes/mediumTank.png" class="class-badge"><b>MT</b></td>
                   <td>401</td>
                   <td>-</td>
                   <td>185</td>
@@ -297,7 +266,7 @@
                   <td>46,13%</td>
                 </tr>
                 <tr>
-                  <td><img src="img/classes/lightTank.png" class="class-badge"><b>LT</b></td>
+                  <td><img src="/img/classes/lightTank.png" class="class-badge"><b>LT</b></td>
                   <td>494</td>
                   <td>-</td>
                   <td>232</td>
@@ -308,7 +277,7 @@
                   <td>46,96%</td>
                 </tr>
                 <tr>
-                  <td><img src="img/classes/AT-SPG.png" class="class-badge"><b>TD</b></td>
+                  <td><img src="/img/classes/AT-SPG.png" class="class-badge"><b>TD</b></td>
                   <td>322</td>
                   <td>-</td>
                   <td>162</td>
@@ -319,7 +288,7 @@
                   <td>50,31%</td>
                 </tr>
                 <tr>
-                  <td><img src="img/classes/SPG.png" class="class-badge"><b>SPG</b></td>
+                  <td><img src="/img/classes/SPG.png" class="class-badge"><b>SPG</b></td>
                   <td>303</td>
                   <td>-</td>
                   <td>152</td>
@@ -470,7 +439,7 @@
                 <tbody>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G04_PzVI_Tiger_I.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>Tiger I</td>
                   <td>VII</td>
@@ -484,7 +453,7 @@
                   <td>0,93</td>
                   <td>1,02</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     1591,16
@@ -495,7 +464,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G16_PzVIB_Tiger_II.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>Tiger II</td>
                   <td>VIII</td>
@@ -509,7 +478,7 @@
                   <td>0,82</td>
                   <td>0,97</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     1568,22
@@ -520,7 +489,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/usa-A11_T29.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/usa.png">
+                    <img src="/img/nation/usa.png">
                   </td>
                   <td>T29</td>
                   <td>VII</td>
@@ -534,7 +503,7 @@
                   <td>0,86</td>
                   <td>0,95</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     1225,47
@@ -545,7 +514,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/ussr-R80_KV1.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/ussr.png">
+                    <img src="/img/nation/ussr.png">
                   </td>
                   <td>KV-1</td>
                   <td>V</td>
@@ -559,7 +528,7 @@
                   <td>0,96</td>
                   <td>0,77</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     1347,22
@@ -570,7 +539,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G13_VK3001H.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>VK 30.01 H</td>
                   <td>V</td>
@@ -584,7 +553,7 @@
                   <td>0,51</td>
                   <td>0,64</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery2.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery2.png">
                   </td>
                   <td>
                     502,48
@@ -595,7 +564,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/usa-A10_M6.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/usa.png">
+                    <img src="/img/nation/usa.png">
                   </td>
                   <td>M6</td>
                   <td>VI</td>
@@ -609,7 +578,7 @@
                   <td>0,90</td>
                   <td>1,03</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     1541,97
@@ -620,7 +589,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G15_VK3601H.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>VK 36.01 H</td>
                   <td>VI</td>
@@ -634,7 +603,7 @@
                   <td>0,78</td>
                   <td>0,61</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery3.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery3.png">
                   </td>
                   <td>
                     945,71
@@ -645,7 +614,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G90_DW_II.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>D.W. 2</td>
                   <td>IV</td>
@@ -659,7 +628,7 @@
                   <td>0,38</td>
                   <td>0,72</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery3.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery3.png">
                   </td>
                   <td>
                     257,67
@@ -670,7 +639,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/germany-G55_E-75.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/germany.png">
+                    <img src="/img/nation/germany.png">
                   </td>
                   <td>E 75</td>
                   <td>IX</td>
@@ -684,7 +653,7 @@
                   <td>0,55</td>
                   <td>0,59</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery2.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery2.png">
                   </td>
                   <td>
                     758,30
@@ -695,7 +664,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/usa-A09_T1_hvy.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/usa.png">
+                    <img src="/img/nation/usa.png">
                   </td>
                   <td>T1 Heavy</td>
                   <td>V</td>
@@ -709,7 +678,7 @@
                   <td>0,71</td>
                   <td>0,89</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery3.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery3.png">
                   </td>
                   <td>
                     919,22
@@ -720,7 +689,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/japan-J23_Mi_To.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/japan.png">
+                    <img src="/img/nation/japan.png">
                   </td>
                   <td>O-I Exp.</td>
                   <td>V</td>
@@ -734,7 +703,7 @@
                   <td>1,22</td>
                   <td>1,08</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery2.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery2.png">
                   </td>
                   <td>
                     1162,79
@@ -745,7 +714,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/ussr-R13_KV-1s.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/ussr.png">
+                    <img src="/img/nation/ussr.png">
                   </td>
                   <td>KV-1S</td>
                   <td>V</td>
@@ -759,7 +728,7 @@
                   <td>0,79</td>
                   <td>0,94</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery3.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery3.png">
                   </td>
                   <td>
                     1096,42
@@ -770,7 +739,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/japan-J22_Type_95.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/japan.png">
+                    <img src="/img/nation/japan.png">
                   </td>
                   <td>Type 95</td>
                   <td>IV</td>
@@ -784,7 +753,7 @@
                   <td>0,67</td>
                   <td>0,72</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery4.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery4.png">
                   </td>
                   <td>
                     853,16
@@ -795,7 +764,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/usa-A12_T32.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/usa.png">
+                    <img src="/img/nation/usa.png">
                   </td>
                   <td>T32</td>
                   <td>VIII</td>
@@ -809,7 +778,7 @@
                   <td>0,33</td>
                   <td>0,72</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery1.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery1.png">
                   </td>
                   <td>
                     499,91
@@ -820,11 +789,11 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/ussr-R61_Object252.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/ussr.png">
+                    <img src="/img/nation/ussr.png">
                   </td>
                   <td>
                     <span>IS-6</span>
-                    <img src="img/nation/premium.png">
+                    <img src="/img/nation/premium.png">
                   </td>
                   <td>VIII</td>
                   <td>13</td>
@@ -837,7 +806,7 @@
                   <td>0,23</td>
                   <td>1,15</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery2.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery2.png">
                   </td>
                   <td>
                     775,28
@@ -848,7 +817,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/japan-J21_Type_91.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/japan.png">
+                    <img src="/img/nation/japan.png">
                   </td>
                   <td>Type 91</td>
                   <td>III</td>
@@ -862,7 +831,7 @@
                   <td>0,63</td>
                   <td>1,00</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery1.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery1.png">
                   </td>
                   <td>
                     508,98
@@ -873,7 +842,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/ussr-R106_KV85.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/ussr.png">
+                    <img src="/img/nation/ussr.png">
                   </td>
                   <td>KV-85</td>
                   <td>VI</td>
@@ -887,7 +856,7 @@
                   <td>0,60</td>
                   <td>0,60</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery2.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery2.png">
                   </td>
                   <td>
                     525,11
@@ -898,11 +867,11 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/uk-GB63_TOG_II.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/uk.png">
+                    <img src="/img/nation/uk.png">
                   </td>
                   <td>
                     <span>TOG II*</span>
-                    <img src="img/nation/premium.png">
+                    <img src="/img/nation/premium.png">
                   </td>
                   <td>VI</td>
                   <td>3</td>
@@ -915,7 +884,7 @@
                   <td>0,00</td>
                   <td>0,00</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery1.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery1.png">
                   </td>
                   <td>
                     165,90
@@ -926,7 +895,7 @@
                 </tr>
                 <tr>
                   <td width="120" style="background-image: url(http://api.worldoftanks.eu/static/2.43.0/wot/encyclopedia/vehicle/small/ussr-R72_T150.png); background-repeat: no-repeat;background-position: left center;">
-                    <img src="img/nation/ussr.png">
+                    <img src="/img/nation/ussr.png">
                   </td>
                   <td>T-150</td>
                   <td>VI</td>
@@ -940,7 +909,7 @@
                   <td>0,00</td>
                   <td>1,00</td>
                   <td>
-                    <img class="mastery-badge" src="img/mastery/mastery0.png">
+                    <img class="mastery-badge" src="/img/mastery/mastery0.png">
                   </td>
                   <td>
                     502,09
@@ -963,47 +932,4 @@
       <i class="large material-icons">refresh</i>
     </a>
   </div>
-</main>
-
-<footer class="page-footer teal">
-  <div class="container">
-    <div class="row">
-      <div class="col l7 s12">
-        <h5 class="white-text">About WotStats</h5>
-        <p class="grey-text text-lighten-4">Welcome to WoTStats, a World of Tanks Statistics Tracker. Here you can track any World of Tanks players statistics and WN8 progression in a nice looking way. Statistics includes also medals and detailed tanks stats with changes over time. You can update your stats whenever you want.</p>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Related sites</h5>
-        <ul>
-          <li><a class="white-text" href="https://worldoftanks.eu" target="_blank">World of Tanks</a></li>
-          <li><a class="white-text" href="http://www.wnefficiency.net/wnexpected/" target="_blank">Reference</a></li>
-          <li><a class="white-text" href="http://modxvm.com/en/" target="_blank">XVM</a></li>
-        </ul>
-      </div>
-      <div class="col l2 s12">
-        <h5 class="white-text">Contact</h5>
-        <ul>
-          <li><a class="white-text" href="https://github.com/peterbartha" target="_blank">GitHub</a></li>
-          <li><a class="white-text" href="https://twitter.com/BarthaPeter" target="_blank">Twitter</a></li>
-          <li><a class="white-text" href="https://peterbartha.com" target="_blank">Website</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      Developed by <a class="teal-text text-lighten-3" href="https://peterbartha.com" target="_blank">Peter Bartha</a>
-    </div>
-  </div>
-</footer>
-
-
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
-<script src="js/init.js"></script>
-<script src="js/charts.js"></script>
-
-</body>
-</html>
+<% include footer %>

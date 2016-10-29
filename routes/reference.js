@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.use('/reference',
     authenticationMW(objectRepository),
     getReferenceListMW(objectRepository),
-    renderMW(objectRepository, 'references')
+    renderMW(objectRepository, 'reference')
   );
 
   /**

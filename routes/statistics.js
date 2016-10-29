@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.use('/:nickname/statistics',
     authenticationMW(objectRepository),
     getStatisticsMW(objectRepository),
-    renderMW(objectRepository, 'stats')
+    renderMW(objectRepository, 'statistics')
   );
 
   /**
