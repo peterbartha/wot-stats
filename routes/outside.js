@@ -42,7 +42,9 @@ module.exports = function (app) {
   /**
    * Sign up page
    */
-  app.get('/signup',
+  app.use('/signup',
+    inverseAuthMW(objectRepository),
+    checkUserCredential(objectRepository),
     renderMW(objectRepository, 'signup')
   );
   
