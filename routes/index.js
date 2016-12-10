@@ -1,13 +1,20 @@
 var renderMW = require('../middleware/generic/render');
+var checkUserCredential = require('../middleware/generic/checkUserCredential');
+
+var userModel = require('../models/user');
 
 module.exports = function (app) {
 
+  var objectRepository = {
+    userModel: userModel
+  };
+
   /**
    * Index page
-   * (without any kind of middlewares)
    */
-  app.get('/', function(req, res) {
-    res.render('index');
-  });
+  app.get('/',
+    checkUserCredential(objectRepository),
+    renderMW(objectRepository, 'index')
+  );
 
 };

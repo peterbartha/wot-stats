@@ -16,8 +16,13 @@
     <ul class="right hide-on-med-and-down">
       <li><input type="text" name="search-field" id="search-field" placeholder="Search for player" /></li>
       <li><a href="/reference">Reference</a></li>
-      <li><a href="/signup">Sign up</a></li>
-      <li><a href="/signin" class="waves-effect waves-light btn">Sign in</a></li>
+        <%if (isLoggedIn) { %>
+          <li><a href="/profile"><%= user ? user.email : '' %></a></li>
+          <li><a href="/signout" class="waves-effect waves-light btn">Sign out</a></li>
+        <% } else { %>
+          <li><a href="/signup">Sign up</a></li>
+          <li><a href="/signin" class="waves-effect waves-light btn">Sign in</a></li>
+        <% } %>
     </ul>
 
     <ul id="nav-mobile" class="side-nav">

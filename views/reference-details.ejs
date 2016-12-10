@@ -1,0 +1,49 @@
+<% include header %>
+<div class="container">
+    <div id="tank-details" class="with-margin">
+        <div class="row">
+            <div class="col s6 m4 l2"><img class="z-depth-1" src="<%= reference.info.img %>" /></div>
+            <div class="col s6 m8 l10">
+                <h5><%= reference.info.tank %></h5>
+                <p class="grey-text">Deltas are showing differences between v<%= reference.version - 2 %> and v<%= reference.version %></p>
+            </div>
+        </div>
+        <table class="table highlight">
+            <thead>
+            <tr>
+                <th class="right-align">expFrag</th>
+                <th class="right-align">expDamage</th>
+                <th class="right-align">expSpot</th>
+                <th class="right-align">expDef</th>
+                <th class="right-align">expWinRate</th>
+                <th class="right-align">deltaFrag</th>
+                <th class="right-align">deltaDamage</th>
+                <th class="right-align">deltaSpot</th>
+                <th class="right-align">deltaDef</th>
+                <th class="right-align">deltaWinRate</th>
+                <th class="text-center">Tier</th>
+                <th>Nation</th>
+                <th>Class</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="right-align"><%= reference.info.expFrag %></td>
+                <td class="right-align"><%= reference.info.expDamage %></td>
+                <td class="right-align"><%= reference.info.expSpot %></td>
+                <td class="right-align"><%= reference.info.expDef %></td>
+                <td class="right-align"><%= reference.info.expWinRate %></td>
+                <td class="right-align"><%= reference.info.deltaFrag %></td>
+                <td class="right-align"><%= reference.info.deltaDamage %></td>
+                <td class="right-align"><%= reference.info.deltaSpot %></td>
+                <td class="right-align"><%= reference.info.deltaDef %></td>
+                <td class="right-align"><%= reference.info.deltaWinRate %></td>
+                <td class="center-align"><%= reference.info.tier %></td>
+                <td><%= reference.info.nation %></td>
+                <td><%= reference.info.class %></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<% include footer %>

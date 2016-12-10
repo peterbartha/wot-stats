@@ -1,3 +1,4 @@
+var mongoose = require('mongoose');
 var requireOption = require('../common').requireOption;
 
 /**
@@ -5,8 +6,34 @@ var requireOption = require('../common').requireOption;
  */
 module.exports = function (objectRepository) {
 
+  var userModel = requireOption(objectRepository, 'userModel');
+
   return function (req, res, next) {
-    return next();
+    if (req.session.userid) {
+      var id = new mongoose.Types.ObjectId(req.session.userid);
+
+      // lets find the user
+      userModel.findById({
+        '_id': id
+      }, function (err, result) {
+        console.log(err);
+        console.log(result);
+        if ((err) || (!result)) {
+          return next();
+        }
+
+        res.tpl.isLoggedIn = true;
+        res.tpl.user = {
+          nickname: result.nickname,
+          email: result.email
+        };
+
+        console.log(res.tpl);
+        return next();
+      });
+    } else {
+      return next();
+    }
   };
 
 };

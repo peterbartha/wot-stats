@@ -24,7 +24,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(function (req, res, next) {
-  res.tpl = {};
+  res.tpl = {
+    isLoggedIn: false,
+    user: null
+  };
   res.tpl.error = [];
 
   return next();

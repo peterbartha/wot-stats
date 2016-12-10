@@ -1,42 +1,35 @@
-var authenticationMW = require('../middleware/generic/authentication');
+var checkUserCredential = require('../middleware/generic/checkUserCredential');
 var renderMW = require('../middleware/generic/render');
 
 var getReferenceMW = require('../middleware/reference/getReference');
 var getReferenceListMW = require('../middleware/reference/getReferenceList');
-var updateReferenceMW = require('../middleware/reference/updateReference');
+
 var referenceModel = {};
+var userModel = require('../models/user');
 
 module.exports = function (app) {
 
   var objectRepository = {
-    referenceModel: referenceModel
+    userModel: userModel
   };
+
+
+  /**
+   * Get a reference by ID
+   */
+  app.use('/reference/:referenceId',
+    checkUserCredential(objectRepository),
+    getReferenceMW(objectRepository),
+    renderMW(objectRepository, 'reference-details')
+  );
 
   /**
    * List all references
    */
   app.use('/reference',
-    authenticationMW(objectRepository),
+    checkUserCredential(objectRepository),
     getReferenceListMW(objectRepository),
     renderMW(objectRepository, 'reference')
-  );
-
-  /**
-   * Get a reference by ID
-   */
-  app.use('/reference/:id',
-    authenticationMW(objectRepository),
-    getReferenceMW(objectRepository),
-    renderMW(objectRepository, 'reference')
-  );
-
-  /**
-   * Check for reference updates
-   */
-  app.use('/reference/check-for-updates',
-    authenticationMW(objectRepository),
-    updateReferenceMW(objectRepository),
-    renderMW(objectRepository, 'updatereferences')
   );
 
 };

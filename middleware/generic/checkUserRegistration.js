@@ -16,6 +16,8 @@ module.exports = function (objectrepository) {
       return next();
     }
 
+    console.log(req.body);
+
     //lets find the user
     UserModel.findOne({
       email: req.body.email
@@ -26,7 +28,7 @@ module.exports = function (objectrepository) {
         return next();
       }
 
-      if (req.body.name.length < 3) {
+      if (req.body.nickname.length < 3) {
         res.tpl.error.push('The username should be at least 3 characters!');
         return next();
       }
@@ -37,7 +39,7 @@ module.exports = function (objectrepository) {
       newUser.email = req.body.email;
       newUser.password = req.body.password;
       newUser.save(function (e) {
-        return res.redirect('/login');
+        return res.redirect('/signin');
       });
     });
   };

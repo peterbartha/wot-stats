@@ -1,31 +1,25 @@
 var authRedirectionMW = require('../middleware/generic/authRedirection');
 var inverseAuthMW = require('../middleware/generic/inverseAuth');
 var checkUserCredential = require('../middleware/generic/checkUserCredential');
+var checkUserLoginMW = require('../middleware/generic/checkUserLogin');
 var renderMW = require('../middleware/generic/render');
-var authenticationMW = require('../middleware/generic/authentication');
+var checkUserRegistrationMW = require('../middleware/generic/checkUserRegistration');
 var signoutMW = require('../middleware/generic/signout');
 
-var playerModel = {};
+var userModel = require('../models/user');
 
 module.exports = function (app) {
 
   var objectRepository = {
-    playerModel: playerModel
+    userModel: userModel
   };
-
-  /**
-   * Main page
-   */
-  app.get('/',
-    authRedirectionMW(objectRepository)
-  );
 
   /**
    * Sign in page
    */
   app.use('/signin',
     inverseAuthMW(objectRepository),
-    checkUserCredential(objectRepository),
+    checkUserLoginMW(objectRepository),
     renderMW(objectRepository, 'signin')
   );
 
@@ -44,7 +38,7 @@ module.exports = function (app) {
    */
   app.use('/signup',
     inverseAuthMW(objectRepository),
-    checkUserCredential(objectRepository),
+    checkUserRegistrationMW(objectRepository),
     renderMW(objectRepository, 'signup')
   );
   

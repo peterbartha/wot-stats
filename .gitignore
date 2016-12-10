@@ -28,3 +28,5 @@ node_modules
 
 # WebStorm project metadata
 .idea
+
+api-keys.js

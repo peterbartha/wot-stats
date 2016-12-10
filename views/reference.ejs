@@ -1,188 +1,48 @@
 <% include header %>
   <div class="container">
     <div id="expected" class="section with-margin">
-      <h5>Expected Tank Values v27</h5>
-      <p class="grey-text">Deltas are showing differences between v26 and v27</p>
+      <h5>Expected Tank Values v<%= reference.version %></h5>
+      <p class="grey-text">Deltas are showing differences between v<%= reference.version - 2 %> and v<%= reference.version %></p>
       <table class="table highlight">
         <thead>
         <tr>
           <th>Tank</th>
-          <th class="text-right">expFrag</th>
-          <th class="text-right">expDamage</th>
-          <th class="text-right">expSpot</th>
-          <th class="text-right">expDef</th>
-          <th class="text-right">expWinRate</th>
-          <th class="text-right">deltaFrag</th>
-          <th class="text-right">deltaDamage</th>
-          <th class="text-right">deltaSpot</th>
-          <th class="text-right">deltaDef</th>
-          <th class="text-right">deltaWinRate</th>
-          <th class="text-right">Tier</th>
+          <th class="right-align">expFrag</th>
+          <th class="right-align">expDamage</th>
+          <th class="right-align">expSpot</th>
+          <th class="right-align">expDef</th>
+          <th class="right-align">expWinRate</th>
+          <th class="right-align">deltaFrag</th>
+          <th class="right-align">deltaDamage</th>
+          <th class="right-align">deltaSpot</th>
+          <th class="right-align">deltaDef</th>
+          <th class="right-align">deltaWinRate</th>
+          <th class="text-center">Tier</th>
           <th>Nation</th>
           <th>Class</th>
         </tr>
         </thead>
         <tbody>
+
+        <% reference.list.forEach(function(ref){ %>
         <tr>
-          <td>MT-25</td>
-          <td class="right-align">0.54</td>
-          <td class="right-align">427.11</td>
-          <td class="right-align">2.61</td>
-          <td class="right-align">0.63</td>
-          <td class="right-align">52.59</td>
-          <td class="right-align">-0.01</td>
-          <td class="right-align">11.59</td>
-          <td class="right-align">-0.21</td>
-          <td class="right-align">0</td>
-          <td class="right-align">-0.18</td>
-          <td class="right-align">6</td>
-          <td>ussr</td>
-          <td>light</td>
+          <td><a href="/reference/<%= ref.id %>"><%= ref.tank %></a></td>
+          <td class="right-align"><%= ref.expFrag %></td>
+          <td class="right-align"><%= ref.expDamage %></td>
+          <td class="right-align"><%= ref.expSpot %></td>
+          <td class="right-align"><%= ref.expDef %></td>
+          <td class="right-align"><%= ref.expWinRate %></td>
+          <td class="right-align"><%= ref.deltaFrag %></td>
+          <td class="right-align"><%= ref.deltaDamage %></td>
+          <td class="right-align"><%= ref.deltaSpot %></td>
+          <td class="right-align"><%= ref.deltaDef %></td>
+          <td class="right-align"><%= ref.deltaWinRate %></td>
+          <td class="center-align"><%= ref.tier %></td>
+          <td><%= ref.nation %></td>
+          <td><%= ref.class %></td>
         </tr>
-        <tr>
-          <td>T21</td>
-          <td class="right-align">0.55</td>
-          <td class="right-align">480.16</td>
-          <td class="right-align">2.12</td>
-          <td class="right-align">0.58</td>
-          <td class="right-align">52.61</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">0.17</td>
-          <td class="right-align">-0.21</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">0.15</td>
-          <td class="right-align">6</td>
-          <td>usa</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>Type 62</td>
-          <td class="right-align">0.57</td>
-          <td class="right-align">626.29</td>
-          <td class="right-align">2.29</td>
-          <td class="right-align">0.63</td>
-          <td class="right-align">50.20</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">-7.12</td>
-          <td class="right-align">-0.04</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">-0.59</td>
-          <td class="right-align">7</td>
-          <td>china</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>VK 16.02 Leopard</td>
-          <td class="right-align">0.58</td>
-          <td class="right-align">365.90</td>
-          <td class="right-align">2.34</td>
-          <td class="right-align">0.62</td>
-          <td class="right-align">52.96</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">0.8</td>
-          <td class="right-align">-0.3</td>
-          <td class="right-align">-0.03</td>
-          <td class="right-align">-0.55</td>
-          <td class="right-align">5</td>
-          <td>germany</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>WZ-132</td>
-          <td class="right-align">0.58</td>
-          <td class="right-align">786.26</td>
-          <td class="right-align">2.38</td>
-          <td class="right-align">0.58</td>
-          <td class="right-align">49.97</td>
-          <td class="right-align">0.02</td>
-          <td class="right-align">24.48</td>
-          <td class="right-align">-0.2</td>
-          <td class="right-align">0.01</td>
-          <td class="right-align">0.05</td>
-          <td class="right-align">8</td>
-          <td>china</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>59-16</td>
-          <td class="right-align">0.59</td>
-          <td class="right-align">433.93</td>
-          <td class="right-align">2.39</td>
-          <td class="right-align">0.57</td>
-          <td class="right-align">51.55</td>
-          <td class="right-align">0.01</td>
-          <td class="right-align">12.27</td>
-          <td class="right-align">-0.17</td>
-          <td class="right-align">0.02</td>
-          <td class="right-align">0.06</td>
-          <td class="right-align">6</td>
-          <td>china</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>VK 28.01</td>
-          <td class="right-align">0.60</td>
-          <td class="right-align">497.77</td>
-          <td class="right-align">2.34</td>
-          <td class="right-align">0.56</td>
-          <td class="right-align">52.55</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">-4.08</td>
-          <td class="right-align">-0.2</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">-0.09</td>
-          <td class="right-align">6</td>
-          <td>germany</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>WZ-131</td>
-          <td class="right-align">0.60</td>
-          <td class="right-align">688.39</td>
-          <td class="right-align">2.25</td>
-          <td class="right-align">0.62</td>
-          <td class="right-align">50.90</td>
-          <td class="right-align">0</td>
-          <td class="right-align">21.37</td>
-          <td class="right-align">-0.19</td>
-          <td class="right-align">0.01</td>
-          <td class="right-align">-0.21</td>
-          <td class="right-align">7</td>
-          <td>china</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>Aufklarungspanzer Panther</td>
-          <td class="right-align">0.61</td>
-          <td class="right-align">673.84</td>
-          <td class="right-align">1.97</td>
-          <td class="right-align">0.62</td>
-          <td class="right-align">51.02</td>
-          <td class="right-align">-0.01</td>
-          <td class="right-align">-12.91</td>
-          <td class="right-align">-0.04</td>
-          <td class="right-align">0.03</td>
-          <td class="right-align">-0.1</td>
-          <td class="right-align">7</td>
-          <td>germany</td>
-          <td>light</td>
-        </tr>
-        <tr>
-          <td>AMX 13 75</td>
-          <td class="right-align">0.62</td>
-          <td class="right-align">613.95</td>
-          <td class="right-align">1.96</td>
-          <td class="right-align">0.62</td>
-          <td class="right-align">51.12</td>
-          <td class="right-align">0</td>
-          <td class="right-align">-0.9</td>
-          <td class="right-align">-0.09</td>
-          <td class="right-align">-0.02</td>
-          <td class="right-align">0.01</td>
-          <td class="right-align">7</td>
-          <td>france</td>
-          <td>light</td>
-        </tr>
+        <% }); %>
+
         </tbody>
       </table>
     </div>

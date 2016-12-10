@@ -3,9 +3,10 @@
  */
 module.exports = function (objectRepository) {
 
-  console.log(objectRepository);
-
   return function (req, res, next) {
+    if (typeof req.session.userid !== 'undefined') {
+      return res.redirect('/');
+    }
     return next();
   };
 
