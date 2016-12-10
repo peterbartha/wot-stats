@@ -1,4 +1,5 @@
 var requireOption = require('../common').requireOption;
+var api = require('../utils/api');
 
 /**
  * Check if the email address is already registered, if not
@@ -16,31 +17,39 @@ module.exports = function (objectrepository) {
       return next();
     }
 
-    console.log(req.body);
+    api.getPlayerId(req.body.nickname).then(function (body) {
+      if (body.data.length) {
+        //lets find the user
+        UserModel.findOne({
+          email: req.body.email
+        }, function (err, result) {
 
-    //lets find the user
-    UserModel.findOne({
-      email: req.body.email
-    }, function (err, result) {
+          if ((err) || (result !== null)) {
+            res.tpl.error.push('Your email address is already registered!');
+            return next();
+          }
 
-      if ((err) || (result !== null)) {
-        res.tpl.error.push('Your email address is already registered!');
-        return next();
+          if (req.body.nickname.length < 3) {
+            res.tpl.error.push('The username should be at least 3 characters!');
+            return next();
+          }
+
+          //create user
+          var newUser = new UserModel();
+          newUser.nickname = req.body.nickname;
+          newUser.email = req.body.email;
+          newUser.password = req.body.password;
+          newUser.accountId = body.data[0].account_id;
+          newUser.save(function (e) {
+            return res.redirect('/signin');
+          });
+        });
+      } else {
+        // No player in Wot DB
+        return res.redirect('/');
       }
-
-      if (req.body.nickname.length < 3) {
-        res.tpl.error.push('The username should be at least 3 characters!');
-        return next();
-      }
-
-      //create user
-      var newUser = new UserModel();
-      newUser.nickname = req.body.nickname;
-      newUser.email = req.body.email;
-      newUser.password = req.body.password;
-      newUser.save(function (e) {
-        return res.redirect('/signin');
-      });
+    }, function (e) {
+      return res.redirect('/');
     });
   };
 };

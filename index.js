@@ -5,6 +5,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 
+
 // Configuring 'app'
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -52,3 +53,5 @@ app.use(function (err, req, res, next) {
 var server = app.listen(3000, function() {
     console.log('Server is running on port 3000.');
 });
+
+require('./scheduler/scheduler');

@@ -4,7 +4,6 @@ var renderMW = require('../middleware/generic/render');
 var getReferenceMW = require('../middleware/reference/getReference');
 var getReferenceListMW = require('../middleware/reference/getReferenceList');
 
-var referenceModel = {};
 var userModel = require('../models/user');
 
 module.exports = function (app) {

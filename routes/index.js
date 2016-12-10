@@ -1,6 +1,7 @@
 var renderMW = require('../middleware/generic/render');
 var checkUserCredential = require('../middleware/generic/checkUserCredential');
 
+
 var userModel = require('../models/user');
 
 module.exports = function (app) {
@@ -17,4 +18,10 @@ module.exports = function (app) {
     renderMW(objectRepository, 'index')
   );
 
+  app.post('/',
+    function (req, res, next) {
+      var nickname = req.body.nickname;
+      return res.redirect('/' + nickname + '/statistics');
+    }
+  );
 };

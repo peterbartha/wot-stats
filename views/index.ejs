@@ -7,10 +7,12 @@
         <h5 class="header col s12 light">Calculate advanced player stats: WN7, WN8, efficiency (EU players only)</h5>
       </div>
       <div class="row center">
-        <input type="text" class="col s12 m3 offset-m3" placeholder="Player's nickname" autofocus />
-        <div class="col s12 m3">
-          <a href="/playername/statistics" id="search-button" class="btn-large waves-effect waves-light red accent-2"><i class="material-icons left">search</i> Search</a>
-        </div>
+        <form method="post">
+          <input type="text" name="nickname" class="col s12 m3 offset-m3" placeholder="Player's nickname" autofocus />
+          <div class="col s12 m3">
+            <button href="/playername/statistics" id="search-button" type="submit" class="btn-large waves-effect waves-light red accent-2"><i class="material-icons left">search</i> Search</button>
+          </div>
+        </form>
       </div>
       <br><br>
     </div>

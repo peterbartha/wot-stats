@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 </head>
 <body>
 <nav class="teal darken-1" role="navigation">
@@ -17,7 +20,7 @@
       <li><input type="text" name="search-field" id="search-field" placeholder="Search for player" /></li>
       <li><a href="/reference">Reference</a></li>
         <%if (isLoggedIn) { %>
-          <li><a href="/profile"><%= user ? user.email : '' %></a></li>
+          <li><a href="/<%= user ? user.nickname : '' %>/statistics"><%= user ? user.nickname : '' %></a></li>
           <li><a href="/signout" class="waves-effect waves-light btn">Sign out</a></li>
         <% } else { %>
           <li><a href="/signup">Sign up</a></li>

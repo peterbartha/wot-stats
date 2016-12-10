@@ -35,7 +35,6 @@ module.exports = function (objectrepository) {
       //login is ok, save id to session
       req.session.userid = result._id;
 
-      //redirect to / so the app can decide where to go next
       return res.redirect('/');
     });
   };

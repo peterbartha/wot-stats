@@ -16,8 +16,6 @@ module.exports = function (objectRepository) {
       userModel.findById({
         '_id': id
       }, function (err, result) {
-        console.log(err);
-        console.log(result);
         if ((err) || (!result)) {
           return next();
         }
@@ -28,7 +26,6 @@ module.exports = function (objectRepository) {
           email: result.email
         };
 
-        console.log(res.tpl);
         return next();
       });
     } else {
