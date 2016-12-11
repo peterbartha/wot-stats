@@ -1,0 +1,9 @@
+<% if (error.length > 0) { %>
+<div id="error-panel" class="card-panel red darken-2">
+    <ul class="white-text">
+        <% error.forEach(function(item){ %>
+        <li><i class="material-icons tiny">error_outline</i> <%= item %></li>
+        <% }); %>
+    </ul>
+</div>
+<% } %>

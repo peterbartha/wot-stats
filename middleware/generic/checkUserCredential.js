@@ -21,10 +21,7 @@ module.exports = function (objectRepository) {
         }
 
         res.tpl.isLoggedIn = true;
-        res.tpl.user = {
-          nickname: result.nickname,
-          email: result.email
-        };
+        res.tpl.user = result;
 
         return next();
       });

@@ -3,7 +3,8 @@ var db = require('../config/db');
 var User = db.model('User', {
   nickname: String,
   email: String,
-  password: String,
+  hash: String,
+  salt: String,
   accountId: Number
 });
 

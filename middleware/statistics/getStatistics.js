@@ -42,6 +42,11 @@ module.exports = function (objectRepository) {
     });
 
     api.getPlayerId(nickname).then(function (body) {
+
+      if (!body.data[0]) {
+        res.tpl.error.push('There is no player with name:' + nickname);
+        return res.redirect('/');
+      }
       var accountId = body.data[0]['account_id'];
 
       return api.getPlayerInfo(accountId).then(function (body2) {
@@ -67,7 +72,7 @@ module.exports = function (objectRepository) {
           var wn8 = utils.calculateWN8(playerTanks, expectedList, stats.battles, avgDmg, avgSpot, avgFrag, avgDef, avgWinRate);
           var eff = utils.calculateEfficiency(playerTanks, tanks, stats.battles, avgDmg, avgSpot, avgFrag, avgDef, avgCap);
 
-          var change = utils.roundTwoDecPlaces(wn8 - graph[graph.length - 1].wn8);
+          var change = graph.length ? utils.roundTwoDecPlaces(wn8 - graph[graph.length - 1].wn8) : 0;
 
           /**
            * Summary

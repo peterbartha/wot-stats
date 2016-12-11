@@ -1,0 +1,22 @@
+<% include header %>
+<div class="container">
+    <div id="profile-details" class="with-margin">
+        <div class="row">
+            <form class="col s12 m6 offset-m3" method="post">
+                <%- include errorbox %>
+                <h5><%= user.nickname %>&nbsp;&nbsp;<small>(WoT ID: <%= user.accountId %>)</small></h5>
+                <p class="grey-text">Delete your saved statistics</p>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="hidden" name="ok" id="ok" value="ok" />
+                        <p>Are you sure you want to delete your saved stats?</p>
+                        <a href="/player/<%= user.nickname %>" class="btn-large waves-effect waves-light teal">Cancel</a>&nbsp;&nbsp;
+                        <button type="submit" class="btn-large waves-effect waves-light red accent-4">Delete my stats</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include footer %>

@@ -42,8 +42,8 @@ function getUserStats(accountId) {
   });
 }
 
-//var job = schedule.scheduleJob('0 30 7 * * *', function () {
-var job = schedule.scheduleJob('*/30 * * * *', function () {
+var job = schedule.scheduleJob('0 30 7 * * *', function () {
+//var job = schedule.scheduleJob('*/30 * * * *', function () {  // testing
   console.log('tick');
   userModel.find({}, function (err, results) {
     if (err) {

@@ -17,10 +17,10 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="/" class="brand-logo">WoTStats</a>
     <ul class="right hide-on-med-and-down">
-      <li><input type="text" name="search-field" id="search-field" placeholder="Search for player" /></li>
       <li><a href="/reference">Reference</a></li>
         <%if (isLoggedIn) { %>
-          <li><a href="/<%= user ? user.nickname : '' %>/statistics"><%= user ? user.nickname : '' %></a></li>
+          <li><a href="/<%= user ? user.nickname : '' %>/statistics">My stats</a></li>
+          <li><a href="/player/<%= user ? user.nickname : '' %>"><%= user ? user.nickname : '' %></a></li>
           <li><a href="/signout" class="waves-effect waves-light btn">Sign out</a></li>
         <% } else { %>
           <li><a href="/signup">Sign up</a></li>

@@ -1,0 +1,33 @@
+<% include header %>
+<div class="container">
+    <div id="profile-details" class="with-margin">
+        <div class="row">
+            <form class="col s12 m6 offset-m3" method="post">
+                <%- include errorbox %>
+                <h5><%= user.nickname %>&nbsp;&nbsp;<small>(WoT ID: <%= user.accountId %>)</small></h5>
+                <p class="grey-text">Edit your private profile</p>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" name="email" type="email" class="validate" value="<%= user.email %>">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="confirm" name="confirm" type="password" class="validate">
+                        <label for="password-confirm">Confirm password</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-large waves-effect waves-light red accent-2"><i class="material-icons left">save</i> Save changes</button>
+            </form>
+        </div>
+    </div>
+</div>
+<% include footer %>

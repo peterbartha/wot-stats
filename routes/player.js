@@ -4,31 +4,17 @@ var renderMW = require('../middleware/generic/render');
 var getPlayerMW = require('../middleware/players/getPlayer');
 var updatePlayerMW = require('../middleware/players/updatePlayer');
 var deletePlayerMW = require('../middleware/players/deletePlayer');
-var playerModel = {};
+
+var statisticsModel = require('../models/stats');
+var userModel = require('../models/user');
 
 module.exports = function (app) {
 
   var objectRepository = {
-    playerModel: playerModel
+    userModel: userModel,
+    statisticsModel: statisticsModel
   };
 
-  /**
-   * Get player info
-   */
-  app.use('/player/:nickname',
-    authenticationMW(objectRepository),
-    getPlayerMW(objectRepository),
-    renderMW(objectRepository, 'player')
-  );
-
-  /**
-   * Add new player
-   */
-  app.use('/player/:nickname/new',
-    authenticationMW(objectRepository),
-    updatePlayerMW(objectRepository),
-    renderMW(objectRepository, 'newplayer')
-  );
 
   /**
    * Edit the player info
@@ -37,7 +23,7 @@ module.exports = function (app) {
     authenticationMW(objectRepository),
     getPlayerMW(objectRepository),
     updatePlayerMW(objectRepository),
-    renderMW(objectRepository, 'newplayer')
+    renderMW(objectRepository, 'edit-profile')
   );
 
   /**
@@ -48,9 +34,16 @@ module.exports = function (app) {
     authenticationMW(objectRepository),
     getPlayerMW(objectRepository),
     deletePlayerMW(objectRepository),
-    function (req, res, next) {
-      return res.redirect('/');
-    }
+    renderMW(objectRepository, 'delete-profile')
+  );
+
+  /**
+   * Get player info
+   */
+  app.use('/player/:nickname',
+    authenticationMW(objectRepository),
+    getPlayerMW(objectRepository),
+    renderMW(objectRepository, 'profile')
   );
 
 };

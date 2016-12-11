@@ -1,5 +1,6 @@
 var requireOption = require('../common').requireOption;
 var api = require('../utils/api');
+var pass = require('pwd');
 
 /**
  * Check if the email address is already registered, if not
@@ -38,10 +39,15 @@ module.exports = function (objectrepository) {
           var newUser = new UserModel();
           newUser.nickname = req.body.nickname;
           newUser.email = req.body.email;
-          newUser.password = req.body.password;
           newUser.accountId = body.data[0].account_id;
-          newUser.save(function (e) {
-            return res.redirect('/signin');
+
+          pass.hash(req.body.password, function(err, salt, hash){
+            newUser.salt = salt;
+            newUser.hash = hash;
+
+            newUser.save(function (e) {
+              return res.redirect('/signin');
+            });
           });
         });
       } else {

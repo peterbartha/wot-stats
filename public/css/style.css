@@ -46,3 +46,11 @@ main {
   padding-left: 20px;
   line-height: 26px;
 }
+
+#error-panel {
+  margin-bottom: 30px;
+}
+
+#error-panel ul {
+  margin: 0;
+}

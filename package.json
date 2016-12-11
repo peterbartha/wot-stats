@@ -39,6 +39,7 @@
     "moment": "^2.17.1",
     "mongoose": "^4.7.2",
     "node-schedule": "^1.2.0",
+    "pwd": "^1.1.0",
     "request": "^2.79.0"
   }
 }
