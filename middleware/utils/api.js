@@ -1,6 +1,11 @@
 var apiKey = require('../../config/api-keys').wot;
 var request = require('request');
 
+/**
+ * Wot API wrapper
+ * @param url
+ * @returns {Promise}
+ */
 function wotGet(url) {
   return new Promise(function(resolve, reject) {
     var options = {
@@ -36,6 +41,10 @@ function getTanks() {
   return wotGet('https://api.worldoftanks.eu/wot/encyclopedia/tanks/?application_id=' + apiKey);
 }
 
+/**
+ * Refrence API wrapper
+ * @returns {Promise}
+ */
 function getReferenceList() {
   return new Promise(function(resolve, reject) {
     var options = {
@@ -51,6 +60,9 @@ function getReferenceList() {
   });
 }
 
+/**
+ * Exported public functions
+ */
 module.exports.getPlayerId = getPlayerId;
 module.exports.getPlayerInfo = getPlayerInfo;
 module.exports.getPlayerTanks = getPlayerTanks;

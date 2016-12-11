@@ -4,6 +4,8 @@ var apiKey = require('../../config/api-keys').wot;
 
 /**
  * Get the reference for the ID param
+ * Load the newest version of reference params with the second newest,
+ * and compare them to calculate deltas
  */
 module.exports = function (objectRepository) {
 
@@ -39,7 +41,7 @@ module.exports = function (objectRepository) {
           if (!old) old = obj;  // for new tanks
 
           var tank = body3.data[referenceId];
-          if (!tank) {
+          if (!tank) {  // removed tanks
             tank = {
               localized_name: 'NaN (removed)',
               level: 'NaN',

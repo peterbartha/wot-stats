@@ -7,6 +7,9 @@ var api = require('../middleware/utils/api');
 var userModel = require('../models/user');
 var statsModel = require('../models/stats');
 
+/**
+ * Calculate the registered player main statistics (WN8, EFFICIENCY, WIN RATE)
+ */
 function getUserStats(accountId) {
   return api.getPlayerInfo(accountId).then(function (body2) {
     var player = body2.data[accountId];
@@ -42,9 +45,13 @@ function getUserStats(accountId) {
   });
 }
 
+/**
+ * Schedules a query job
+ * It will query the recent statistics from WoT Web API every day (at 7.30 am)
+ */
 var job = schedule.scheduleJob('0 30 7 * * *', function () {
-//var job = schedule.scheduleJob('*/30 * * * *', function () {  // testing
-  console.log('tick');
+// var job = schedule.scheduleJob('*/30 * * * *', function () {  // testing
+// console.log('tick');
   userModel.find({}, function (err, results) {
     if (err) {
       throw new Error(err);
@@ -67,8 +74,9 @@ var job = schedule.scheduleJob('0 30 7 * * *', function () {
       promiseArr.push(promise);
     }
 
+    // Execute all promises
     Promise.all(promiseArr).then(function () {
-      console.log('done');
+      // console.log('finished');
     }, function (e) {
       console.error(e);
     });

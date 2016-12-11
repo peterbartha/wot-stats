@@ -18,6 +18,9 @@ module.exports = function (objectRepository) {
     var nickname = req.params['nickname'];
     var graph = [];
 
+    // Check user in our DB
+    // If we don't find the user by the given nickname (IT'S NOT A PROBLEM),
+    // we just cannot generate graphs for him/her
     userModel.findOne({
       nickname: nickname
     }, function (err, result) {
@@ -53,6 +56,7 @@ module.exports = function (objectRepository) {
         var player = body2.data[accountId];
         var stats = player.statistics.all;
 
+        // Promises for chaining
         var playerTanksPromise = api.getPlayerTanks(accountId);
         var expectedPromise = api.getReferenceList();
         var tanksPromise = api.getTanks();
@@ -69,6 +73,7 @@ module.exports = function (objectRepository) {
           var avgWinRate = stats.wins / stats.battles * 100;
           var avgCap = stats['capture_points'] / stats.battles;
 
+          // Calculate ratings
           var wn8 = utils.calculateWN8(playerTanks, expectedList, stats.battles, avgDmg, avgSpot, avgFrag, avgDef, avgWinRate);
           var eff = utils.calculateEfficiency(playerTanks, tanks, stats.battles, avgDmg, avgSpot, avgFrag, avgDef, avgCap);
 
@@ -139,6 +144,7 @@ module.exports = function (objectRepository) {
             data: battlesOnly
           };
 
+          // template params
           res.tpl.stats = {
             main: main,
             summary: summary,

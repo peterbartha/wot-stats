@@ -17,7 +17,7 @@ module.exports = function (objectRepository) {
         '_id': id
       }, function (err, result) {
         if ((err) || (!result)) {
-          return next();
+          return next(err);
         }
 
         res.tpl.isLoggedIn = true;

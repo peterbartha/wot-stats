@@ -26,7 +26,7 @@ module.exports = function (objectRepository) {
         }
 
         delete res.tpl.user;
-        req.session.destroy(function (err) {});
+        req.session.destroy(function (err) {}); // destroy the actual session
 
         // redirect to home page
         res.redirect('/');

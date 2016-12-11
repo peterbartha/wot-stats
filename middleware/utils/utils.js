@@ -15,10 +15,31 @@ function percByBattle(number, battles) {
   return roundTwoDecPlaces(n);
 }
 
-
 /**
  * Calculate player's WN8
+ * For more information, please check: http://wiki.wnefficiency.net/pages/WN8
  */
+function calculateWN8(tanks, expected, battles, avgDmg, avgSpot, avgFrag, avgDef, avgWinRate) {
+  var statArr = [];
+  for (var i=0; i < tanks.length; i++) {
+    var tank = tanks[i];
+    for (var j=0; j < expected.length; j++) {
+      var stat = expected[j];
+      if (tank.tank_id === stat.IDNum) {
+        stat.expDamage = stat.expDamage * tank.statistics.battles;
+        stat.expDef = stat.expDef * tank.statistics.battles;
+        stat.expFrag = stat.expFrag * tank.statistics.battles;
+        stat.expSpot = stat.expSpot * tank.statistics.battles;
+        stat.expWinRate = (stat.expWinRate * tank.statistics.battles * 100) / 100.0;
+        statArr.push(stat);
+      }
+    }
+  }
+  var expectedAvg = calculateExpectedAvg(statArr, battles);
+  var avg = { avgDmg: avgDmg, avgSpot: avgSpot, avgFrag: avgFrag, avgDef: avgDef, avgWinRate: avgWinRate };
+  return calculateWN8Ratios(avg, expectedAvg);
+}
+
 function calculateExpectedAvg(statArr, battles) {
   var expDmg = 0;
   var expSpot = 0;
@@ -60,27 +81,9 @@ function calculateWN8Ratios(avg, expected) {
   return 980*rDAMAGEc + 210*rDAMAGEc*rFRAGc + 155*rFRAGc*rSPOTc + 75*rDEFc*rFRAGc + 145*Math.min(1.8, rWINc);
 }
 
-function calculateWN8(tanks, expected, battles, avgDmg, avgSpot, avgFrag, avgDef, avgWinRate) {
-  var statArr = [];
-  for (var i=0; i < tanks.length; i++) {
-    var tank = tanks[i];
-    for (var j=0; j < expected.length; j++) {
-      var stat = expected[j];
-      if (tank.tank_id === stat.IDNum) {
-        stat.expDamage = stat.expDamage * tank.statistics.battles;
-        stat.expDef = stat.expDef * tank.statistics.battles;
-        stat.expFrag = stat.expFrag * tank.statistics.battles;
-        stat.expSpot = stat.expSpot * tank.statistics.battles;
-        stat.expWinRate = (stat.expWinRate * tank.statistics.battles * 100) / 100.0;
-        statArr.push(stat);
-      }
-    }
-  }
-  var expectedAvg = calculateExpectedAvg(statArr, battles);
-  var avg = { avgDmg: avgDmg, avgSpot: avgSpot, avgFrag: avgFrag, avgDef: avgDef, avgWinRate: avgWinRate };
-  return calculateWN8Ratios(avg, expectedAvg);
-}
-
+/**
+ * Battles / tank levels
+ */
 function battlesByTier(playerTanks, tanks) {
   var perLevel = {};
   for (var i = 0; i < playerTanks.length; i++) {
@@ -97,6 +100,10 @@ function battlesByTier(playerTanks, tanks) {
   return perLevel;
 }
 
+/**
+ * Calculate player's efficiency
+ * For more information, please check: http://www.modxvm.com/en/faq/how-is-player-efficiency-rating-calculated/
+ */
 function calculateEfficiency(playerTanks, tanks, battles, avgDmg, avgSpot, avgFrag, avgDef, avgCap) {
   var perLevel = battlesByTier(playerTanks, tanks);
   var sum = 0;

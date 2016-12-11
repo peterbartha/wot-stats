@@ -12,26 +12,30 @@ module.exports = function (objectrepository) {
 
   return function (req, res, next) {
 
-    //not enough parameter
+    // not enough parameter
     if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') ||
-      (typeof req.body.password === 'undefined')) {
+      (typeof req.body.password === 'undefined') || (typeof req.body.confirm === 'undefined')) {
       return next();
     }
 
-    api.getPlayerId(req.body.nickname).then(function (body) {
+    // get player id by the given nickname from WoT WebAPI
+    return api.getPlayerId(req.body.nickname).then(function (body) {
+      if (body.status === 'error') {
+        res.tpl.error.push('Player not found in WoT database.');
+        return next();
+      }
       if (body.data.length) {
         //lets find the user
         UserModel.findOne({
           email: req.body.email
         }, function (err, result) {
-
           if ((err) || (result !== null)) {
             res.tpl.error.push('Your email address is already registered!');
             return next();
           }
 
-          if (req.body.nickname.length < 3) {
-            res.tpl.error.push('The username should be at least 3 characters!');
+          if (req.body.password !== req.body.confirm) {
+            res.tpl.error.push('Passwords are not identical!');
             return next();
           }
 
@@ -51,11 +55,12 @@ module.exports = function (objectrepository) {
           });
         });
       } else {
-        // No player in Wot DB
-        return res.redirect('/');
+        res.tpl.error.push('Player not found in WoT database.');
+        return next();
       }
     }, function (e) {
-      return res.redirect('/');
+      console.log(e);
+      return next();
     });
   };
 };
